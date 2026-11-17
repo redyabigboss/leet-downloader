@@ -1,0 +1,35 @@
+:root{color-scheme:light dark;--bg:#f3f5f9;--card:#fff;--text:#171a21;--muted:#697386;--line:#e6eaf1;--field:#f5f7fb;--accent:#1f6feb;--accent-soft:rgba(31,111,235,.1);--accent-ink:#fff;--shadow:0 2px 5px rgba(20,32,55,.035),0 14px 36px rgba(20,32,55,.065)}
+@media(prefers-color-scheme:dark){:root{--bg:#0b0e14;--card:#141923;--text:#edf1f7;--muted:#929cad;--line:#252e3b;--field:#1b2431;--accent:#388bfd;--accent-soft:rgba(56,139,253,.14);--accent-ink:#fff;--shadow:0 16px 38px rgba(0,0,0,.18)}}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--bg)}
+body{max-width:760px;min-height:100vh;margin:0 auto;padding:38px 22px 110px;color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:radial-gradient(ellipse at 50% 0%,var(--accent-soft),transparent 420px)}
+header{display:flex;flex-direction:column;align-items:center;gap:20px;margin:0 0 30px;text-align:center}
+.brand{display:flex;align-items:center;justify-content:center;gap:13px}
+.brand-icon{display:block;width:44px;height:44px;flex:0 0 44px;border-radius:12px;box-shadow:0 5px 16px rgba(31,111,235,.2)}
+h1{margin:0;font-size:clamp(23px,4vw,28px);font-weight:750;letter-spacing:-.045em;line-height:1.15}
+.lang{display:flex;align-items:center;gap:3px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--card);box-shadow:0 2px 8px rgba(20,32,55,.035)}
+.lang button{min-width:48px;border:0;border-radius:8px;padding:7px 13px;background:transparent;color:var(--muted);font-family:inherit;font-size:13px;font-weight:650;line-height:1.2;cursor:pointer;transition:background .15s,color .15s,transform .15s}
+.lang button:hover{color:var(--text)}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);box-shadow:0 2px 7px rgba(31,111,235,.22)}
+.lang button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+main{display:grid;gap:17px}
+section{overflow:hidden;padding:19px 25px 22px;border:1px solid var(--line);border-radius:19px;background:var(--card);box-shadow:var(--shadow);transition:border-color .18s,transform .18s}
+section:hover{border-color:rgba(31,111,235,.32)}
+h2{margin:0 0 8px;padding:2px 0 14px;border-bottom:1px solid var(--line);color:var(--accent);font-size:12px;font-weight:800;letter-spacing:.12em;text-align:center;text-transform:uppercase}
+.row{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:17px 0;border-top:1px solid var(--line);text-align:center}
+h2+.row{border-top:0}
+.row.col{align-items:stretch}
+.txt{display:flex;min-width:0;flex-direction:column;align-items:center;gap:4px;text-align:center}
+.txt b{font-size:14px;font-weight:680;letter-spacing:.005em}
+small{color:var(--muted);font-size:12.5px;line-height:1.45}
+select,input,textarea{min-height:43px;border:1px solid var(--line);border-radius:11px;padding:10px 13px;outline:none;background:var(--field);color:var(--text);font:inherit;text-align:center;transition:border-color .15s,box-shadow .15s,background .15s}
+select{width:min(100%,340px);cursor:pointer}
+input[type=number]{width:120px;text-align:center;font-variant-numeric:tabular-nums}
+.row.col input,.row.col textarea{width:100%}
+textarea{min-height:108px;resize:vertical;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.55}
+input:hover,select:hover,textarea:hover{border-color:rgba(31,111,235,.5)}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+#status{position:fixed;left:50%;bottom:26px;z-index:5;max-width:calc(100vw - 32px);transform:translate(-50%,14px);padding:10px 20px;border:1px solid rgba(255,255,255,.15);border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:13px;font-weight:700;text-align:center;box-shadow:0 8px 24px rgba(31,111,235,.25);opacity:0;pointer-events:none;transition:opacity .16s,transform .16s}
+#status:not(:empty){transform:translate(-50%,0);opacity:1}
+@media(max-width:560px){body{padding:27px 14px 90px}header{margin-bottom:23px}section{padding:17px 17px 19px;border-radius:16px}select,input[type=number]{width:100%;max-width:100%}.row.col input,.row.col textarea{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}

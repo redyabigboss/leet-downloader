@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>leet downloader</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img class="brand-icon" src="../../icons/icon.svg" alt="">
+      <h1>leet downloader</h1>
+    </div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="ru">RU</button>
+    </div>
+  </header>
+  <main>
+    <section aria-labelledby="downloadHeading">
+      <h2 id="downloadHeading" data-i18n="secDownload"></h2>
+      <label class="row">
+        <span class="txt"><b data-i18n="quality"></b></span>
+        <select id="quality">
+          <option value="best" data-i18n="best"></option>
+          <option value="1080">1080p</option>
+          <option value="720">720p</option>
+          <option value="480">480p</option>
+          <option value="360">360p</option>
+          <option value="worst" data-i18n="worst"></option>
+        </select>
+      </label>
+      <label class="row">
+        <span class="txt">
+          <b data-i18n="concurrency"></b>
+          <small data-i18n="concurrencyHint"></small>
+        </span>
+        <input id="concurrency" type="number" min="1" max="16" step="1" inputmode="numeric">
+      </label>
+    </section>
+    <section aria-labelledby="interfaceHeading">
+      <h2 id="interfaceHeading" data-i18n="secInterface"></h2>
+      <label class="row">
+        <span class="txt"><b data-i18n="position"></b></span>
+        <select id="position">
+          <option value="corner" data-i18n="posCorner"></option>
+          <option value="controls" data-i18n="posControls"></option>
+        </select>
+      </label>
+    </section>
+    <section aria-labelledby="savingHeading">
+      <h2 id="savingHeading" data-i18n="secSaving"></h2>
+      <label class="row col">
+        <span class="txt">
+          <b data-i18n="template"></b>
+          <small>{title} {quality} {host} {date}</small>
+        </span>
+        <textarea id="filenameTemplate" rows="2" spellcheck="false"></textarea>
+      </label>
+    </section>
+    <section aria-labelledby="sitesHeading">
+      <h2 id="sitesHeading" data-i18n="secSites"></h2>
+      <label class="row col">
+        <span class="txt">
+          <b data-i18n="disabled"></b>
+          <small data-i18n="disabledHint"></small>
+        </span>
+        <textarea id="disabledSites" rows="4" placeholder="example.com" spellcheck="false"></textarea>
+      </label>
+    </section>
+  </main>
+  <div id="status" role="status" aria-live="polite"></div>
+  <script src="../lib/settings.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "manifest_version": 2,
+  "name": "leet downloader",
+  "version": "1337",
+  "description": "Adds a Download button to any web video player (HLS, DASH, MP4). No telemetry, no remote code.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "video-download-button@example.invalid",
+      "strict_min_version": "140.0",
+      "data_collection_permissions": {
+        "required": [
+          "none"
+        ]
+      }
+    },
+    "gecko_android": {
+      "strict_min_version": "142.0"
+    }
+  },
+  "icons": {
+    "48": "icons/icon.svg",
+    "96": "icons/icon.svg"
+  },
+  "permissions": [
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking",
+    "downloads",
+    "storage"
+  ],
+  "background": {
+    "scripts": [
+      "src/lib/settings.js",
+      "src/lib/classify.js",
+      "src/lib/m3u8.js",
+      "src/lib/mpd.js",
+      "src/lib/filename.js",
+      "src/background/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "all_frames": true,
+      "match_about_blank": true,
+      "run_at": "document_start",
+      "js": [
+        "src/content/content.js",
+        "src/content/ui.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "src/page/hook.js"
+  ],
+  "browser_action": {
+    "default_title": "leet downloader",
+    "default_icon": "icons/icon.svg"
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  }
+}
